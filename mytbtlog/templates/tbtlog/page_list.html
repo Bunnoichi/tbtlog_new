@@ -1,0 +1,13 @@
+{% extends 'base/tbtlog_base.html' %}
+{% block body %}
+
+<ul>
+   {% for page in page_list %}
+   <li>{{ page.visit_date }}: 
+      <a href="{% url 'tbtlog:page_detail' page.id %}">{{ page.title }}</a></li>
+   {% empty %}
+   <div>投稿が1件もありません。</div>
+   {% endfor %}   
+</ul>
+
+{% endblock %}

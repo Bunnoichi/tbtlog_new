@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>だれかと食べたログ</title>
+   </head>
+   <body>
+      <a href="{% url 'tbtlog:index' %}">トップページ</a>
+      <a href="{% url 'tbtlog:page_create' %}">投稿する</a>
+      <a href="{% url 'tbtlog:page_list' %}">投稿を見る</a>
+      {% block body %}
+      {% endblock %}
+   </body>
+</html>

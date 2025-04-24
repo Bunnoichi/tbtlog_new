@@ -1,0 +1,35 @@
+{% extends 'base/tbtlog_base.html' %}
+{% block body %}
+
+<form method="POST">
+   {% csrf_token %}
+   <p>このページを削除しますか？</p>
+   <button type="submit">削除</button>
+</form>
+
+<h2>{{ page.title }}</h2>
+<div>{{ page.visit_date }}</div>
+<div>{{ page.visit_name | linebreaksbr }}</div>
+<div>{{ page.visit_company | linebreaksbr }}</div>
+<div>{{ page.visit_cost | linebreaksbr }}</div>
+<div>
+   {% if page.visit_picture1 %}
+      <img src="{{ page.visit_picture1.url}}" alt="">
+      {% if page.visit_picture2 %}
+         <img src="{{ page.visit_picture2.url}}" alt="">
+         {% if page.visit_picture3 %}
+            <img src="{{ page.visit_picture3.url}}" alt="">
+            {% if page.visit_picture4 %}
+               <img src="{{ page.visit_picture4.url}}" alt="">
+               {% if page.visit_picture5 %}
+                  <img src="{{ page.visit_picture5.url}}" alt="">
+               {% endif %}
+            {% endif %}
+         {% endif %}
+      {% endif %}
+   {% endif %}
+</div>
+<div>{{ page.note | linebreaksbr }}</div>
+<br>
+<a href="{% url 'tbtlog:page_update' page.id %}">編集</a>
+{% endblock %}
